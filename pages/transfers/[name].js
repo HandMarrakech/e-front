@@ -10,10 +10,10 @@ export default function TransferDetails() {
   const [searchTerm, setSearchTerm] = useState('');
   const [popupImage, setPopupImage] = useState(null);
   const [showMessage, setShowMessage] = useState(false);
-
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
   useEffect(() => {
     if (name) {
-      fetch(`/api/transfers/${name}`)
+      fetch(`${backendUrl}/api/transfers/${name}`)
         .then((response) => response.json())
         .then((data) => {
           setTransfer(data);
